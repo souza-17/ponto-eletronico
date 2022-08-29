@@ -7,6 +7,7 @@ $scanDir = array();
                 @foreach ($data as $nome => $registros)
                     
                     @php
+
                     $registro_dia = '';
                     $conta_registro = 0;
                     $total_registro = count($registros);
@@ -245,7 +246,7 @@ $scanDir = array();
 
                     @endforeach 
                     
-                                    </table>  
+                        </table>  
                     
                 @endforeach 
                 

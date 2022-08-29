@@ -141,7 +141,7 @@ $admin = Session::get('login.ponto.painel.admin');
                                 </h4>
                                 </div>     
                                 <div class="col-md-6 text-right">
-                                    <a href='excel-acompanhamento/{{ $nome }}/{{ $data_inicio }}/{{ $data_fim }}' data-toggle="modal" class="btn btn-xs btn-default"><i class="fa fa-file-excel-o"></i> Exportar</a>
+                                    <a href='excel-acompanhamento/{{ $nome }}/{{ str_replace('/', '-', $data_inicio) }}/{{ str_replace('/', '-', $data_fim) }}' data-toggle="modal" class="btn btn-xs btn-default"><i class="fa fa-file-excel-o"></i> Exportar</a>
                                 </div>    
                             </div>
                             <div id="{{ $registro_nome }}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">

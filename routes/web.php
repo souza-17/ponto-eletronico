@@ -34,7 +34,7 @@ Route::group(['prefix' => 'painel', 'namespace' => 'PontoEletronico'], function(
   Route::get('/', 'IndexPainelController@index');
   
   Route::get('/dashboard', 'DashboardPainelController@index');
-  
+  Route::get('/acompanhamento', 'AcompanhamentoController@index');
   Route::get('/usuarios', 'UsuarioController@index');
   Route::get('/usuario/novo', 'UsuarioController@novo');
   Route::get('/usuario/editar/{id}', 'UsuarioController@editar');
@@ -43,7 +43,7 @@ Route::group(['prefix' => 'painel', 'namespace' => 'PontoEletronico'], function(
   Route::get('/usuario/habilitar/{id}', 'UsuarioController@habilitar');
   Route::post('/usuario/salvar', 'UsuarioController@salvar'); 
   
-  Route::get('/acompanhamento', 'AcompanhamentoController@index');
+  
   Route::post('/acompanhamento', 'AcompanhamentoController@index');
   Route::post('/ponto/salvar', 'PontoPainelController@ajuste');
   Route::post('/ponto/periodo/salvar', 'PontoAjusteController@salvar');

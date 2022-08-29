@@ -41,7 +41,7 @@ class LoginController extends PontoEletronicoController {
         $login = Usuario::where(['cpf' => $cpf, 'senha' => $senha])->first();
         
 
-        // dd($login);
+        //  dd($login->admin);
         
         if(isset($login->id)):
 

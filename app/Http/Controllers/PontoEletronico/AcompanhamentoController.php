@@ -97,8 +97,13 @@ class AcompanhamentoController extends PontoEletronicoController {
     
     public function index_download($usuario, $inicio, $fim){
         
+
+        // dd($usuario);
+
         $usuario_admin = Session::get('login.ponto.painel.admin');
         $usuario_id = Session::get('login.ponto.painel.usuario_id');
+
+
         
         if($usuario_admin != 1):
             $msg = "Download não permitido.";
@@ -110,24 +115,36 @@ class AcompanhamentoController extends PontoEletronicoController {
         
         $data = array();
         
-        $data_inicio_db = $inicio;
-        $data_inicio = $inicio;
-        $data_fim_db = $fim;
-        $data_fim = $fim;
+        $data_inicio_db = Date('Y-m-d',strtotime($inicio));
+        $data_inicio = Date('Y-m-d',strtotime($inicio));
+        $data_fim_db =  Date('Y-m-d',strtotime($fim));
+        $data_fim = Date('Y-m-d',strtotime($fim));
 
+        // dd($data_inicio_db);
         
         if($usuario == 'all'):
             $registros = Ponto::where('data', '>=', $data_inicio_db)->where('data', '<=', $data_fim_db)->with('usuario')->orderBy('data', 'ASC')->orderBy('entrada', 'ASC')->get();
         else:  
             
             $usuario_selecionado = Usuario::where(['nome' => $usuario])->first();
+
+            // dd($usuario_selecionado);
         
             $registros = Ponto::where(['usuario_id' => $usuario_selecionado->id])->where('data', '>=', $data_inicio_db)->where('data', '<=', $data_fim_db)->with('usuario')->orderBy('data', 'ASC')->orderBy('entrada', 'ASC')->get();
+            
+            // dd($registros);
+        
         endif;
+
+
+        // dd($registros);
 
         foreach($registros as $registro):
             $data[$registro->usuario->nome][] = $registro;
         endforeach;       
+
+
+        // dd($data);
 
         return view('pontoeletronico/acompanhamento/index-download')->with('data_inicio', $data_inicio)->with('data_fim', $data_fim)->with('data', $data);
 
