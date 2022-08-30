@@ -21,8 +21,6 @@ class PontoController extends PontoEletronicoController {
     }
     
     public function registrar_validando(){
-
-        // dd("entrou");
         
         $url_base = getenv('APP_URL');
         
@@ -60,7 +58,7 @@ class PontoController extends PontoEletronicoController {
                 Session::put('status.msg', 'Entrada registrada com sucesso! Até breve!');
                 // Session::put('status.error_redirect', $url_base.'/sair');
                 
-                return redirect(getenv('APP_URL').'/dashboard');
+                return redirect(getenv('APP_URL').'/painel/dashboard2');
             
             elseif(!empty($registro_saida) AND empty($registro_entrada)):    
                 
@@ -73,9 +71,9 @@ class PontoController extends PontoEletronicoController {
                 $ponto->save();
                 
                 Session::put('status.msg', 'Entrada registrada com sucesso! Até breve!');
-                Session::put('status.error_redirect', $url_base.'/sair');
+                // Session::put('status.error_redirect', $url_base.'/sair');
                 
-                return redirect(getenv('APP_URL').'/dashboard');
+                return redirect(getenv('APP_URL').'/painel/dashboard2');
                 
             elseif(empty($registro_saida) AND !empty($registro_entrada)):
                 
@@ -83,7 +81,9 @@ class PontoController extends PontoEletronicoController {
                 Session::put('status.area', $area);
                 
                 Session::put('status.msg_confirm', 'Você está fazendo um registro de entrada sem um registro prévio de saída. Confirma?');
-                Session::put('status.redir_confirm', $url_base.'/registrar');  
+                Session::put('status.redir_confirm', $url_base.'/painel/dashboard2');  
+
+                return redirect(getenv('APP_URL').'/painel/dashboard2');
             
             else:
                 
@@ -98,7 +98,7 @@ class PontoController extends PontoEletronicoController {
                 Session::put('status.msg', 'Entrada registrada com sucesso! Até breve!');
                 // Session::put('status.error_redirect', $url_base.'/sair');
                 
-                return redirect(getenv('APP_URL').'/dashboard');
+                return redirect(getenv('APP_URL').'/painel/dashboard2');
                 
             endif;
             
@@ -114,9 +114,9 @@ class PontoController extends PontoEletronicoController {
                 Session::put('status.area', $area);
                 
                 Session::put('status.msg_confirm', 'Você está fazendo um registro de saída sem um registro prévio de entrada. Confirma?');
-                Session::put('status.redir_confirm', $url_base.'/registrar');
+                Session::put('status.redir_confirm', $url_base.'/painel/registrar');
 
-                return redirect(getenv('APP_URL').'/dashboard');
+                return redirect(getenv('APP_URL').'/painel/dashboard2');
             
             elseif(!empty($registro_saida) AND empty($registro_entrada)):    
                 
@@ -131,7 +131,7 @@ class PontoController extends PontoEletronicoController {
                 Session::put('status.msg', 'Saída registrada com sucesso! Até breve!');
                 Session::put('status.error_redirect', $url_base.'/sair');
                 
-                return redirect(getenv('APP_URL').'/dashboard');
+                return redirect(getenv('APP_URL').'/painel/dashboard2');
                 
             elseif(empty($registro_saida) AND !empty($registro_entrada)):
                 
@@ -143,7 +143,7 @@ class PontoController extends PontoEletronicoController {
                 Session::put('status.msg', 'Saída registrada com sucesso! Até breve!');
                 // Session::put('status.error_redirect', $url_base.'/sair');  
                 
-                return redirect(getenv('APP_URL').'/dashboard');
+                return redirect(getenv('APP_URL').'/painel/dashboard2');
             
             else:
 
@@ -153,7 +153,7 @@ class PontoController extends PontoEletronicoController {
                 Session::put('status.msg_confirm', 'Você está fazendo um registro de saída sem um registro prévio de entrada. Confirma?');
                 Session::put('status.redir_confirm', $url_base.'/registrar');
                 
-                return redirect(getenv('APP_URL').'/dashboard');
+                return redirect(getenv('APP_URL').'/painel/dashboard2');
                 
             endif;
             
@@ -164,9 +164,6 @@ class PontoController extends PontoEletronicoController {
     
     public function registrar(){
         
-
-        dd("entrou2");
-
         $url_base = getenv('APP_URL');
         
         $usuario_id = Session::get('login.ponto.painel.usuario_id');
@@ -209,7 +206,7 @@ class PontoController extends PontoEletronicoController {
             
         endif;
         
-        return redirect(getenv('APP_URL').'/dashboard');
+        // return redirect(getenv('APP_URL').'/painel/dashboard2');
         
         
     }

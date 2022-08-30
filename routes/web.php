@@ -15,12 +15,12 @@ Route::group(['namespace' => 'PontoEletronico'], function()
   // Route::get('/', 'IndexController@index');
   Route::get('/','LoginPainelController@login');
   Route::get('/usuario/novo', 'UsuarioController@novo');
-  Route::post('/login', 'LoginController@login');
-  Route::post('/registrar', 'PontoController@registrar_validando');
-  Route::get('/registrar', 'PontoController@registrar');
-  Route::get('/dashboard', 'DashboardController@index');
+  // Route::post('/login', 'LoginController@login');
+  // Route::post('/registrar', 'PontoController@registrar_validando');
+  // Route::get('/registrar', 'PontoController@registrar');
+  // Route::get('/dashboard', 'DashboardController@index');
   
-  Route::get('/sair', 'LoginController@sair');
+  // Route::get('/sair', 'LoginController@sair');
   
   
 });
