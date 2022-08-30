@@ -1,8 +1,10 @@
-@extends('pontoeletronico.admin')
+@extends('pontoeletronico.admin', ['admin' => $admin]);
 
 @section('conteudo')
 
 <?php
+
+
 
 $dia_da_semana[0] = 'Domingo';
 $dia_da_semana[1] = 'Segunda-feira';
@@ -43,7 +45,7 @@ $hora = Date('H:i');
             <!-- /.box-header -->
             <div class="box-body">
               <strong><i class="fas fa-user-tie margin-r-5"></i> Cargo:</strong> {{ $usuario->cargo }} <br>
-              <strong><i class="fas fa-map-marker-alt margin-r-5"></i> Local:</strong> {{ $usuario->local }}
+              <strong><i class="fas fa-map-marker-alt margin-r-5"></i> Local: @php echo $admin; @endphp</strong> {{ $usuario->local }}
             </div>
             <!-- /.box-body -->
           </div>

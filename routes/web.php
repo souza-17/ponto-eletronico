@@ -12,7 +12,8 @@
 */
 Route::group(['namespace' => 'PontoEletronico'], function()
 {
-  Route::get('/', 'IndexController@index');
+  // Route::get('/', 'IndexController@index');
+  Route::get('/','LoginPainelController@login');
   Route::get('/usuario/novo', 'UsuarioController@novo');
   Route::post('/login', 'LoginController@login');
   Route::post('/registrar', 'PontoController@registrar_validando');
@@ -25,14 +26,17 @@ Route::group(['namespace' => 'PontoEletronico'], function()
 });
 
 
-
-
 Route::group(['prefix' => 'painel', 'namespace' => 'PontoEletronico'], function()
 {
   Route::post('/login', 'LoginPainelController@login');
   
   Route::get('/', 'IndexPainelController@index');
   
+  Route::get('/dashboard2', 'DashboardController@index');
+
+  Route::post('/registrar', 'PontoController@registrar_validando');
+  Route::get('/registrar', 'PontoController@registrar');
+
   Route::get('/dashboard', 'DashboardPainelController@index');
   Route::get('/acompanhamento', 'AcompanhamentoController@index');
   Route::get('/usuarios', 'UsuarioController@index');

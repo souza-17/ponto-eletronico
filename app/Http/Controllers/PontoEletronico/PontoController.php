@@ -21,10 +21,12 @@ class PontoController extends PontoEletronicoController {
     }
     
     public function registrar_validando(){
+
+        // dd("entrou");
         
         $url_base = getenv('APP_URL');
         
-        $usuario_id = Session::get('login.ponto.usuario_id');
+        $usuario_id = Session::get('login.ponto.painel.usuario_id');
         
         $hoje = Date("Y-m-d");
         
@@ -56,7 +58,7 @@ class PontoController extends PontoEletronicoController {
                 $ponto->save();
                 
                 Session::put('status.msg', 'Entrada registrada com sucesso! Até breve!');
-                Session::put('status.error_redirect', $url_base.'/sair');
+                // Session::put('status.error_redirect', $url_base.'/sair');
                 
                 return redirect(getenv('APP_URL').'/dashboard');
             
@@ -94,7 +96,7 @@ class PontoController extends PontoEletronicoController {
                 $ponto->save();
                 
                 Session::put('status.msg', 'Entrada registrada com sucesso! Até breve!');
-                Session::put('status.error_redirect', $url_base.'/sair');
+                // Session::put('status.error_redirect', $url_base.'/sair');
                 
                 return redirect(getenv('APP_URL').'/dashboard');
                 
@@ -139,7 +141,7 @@ class PontoController extends PontoEletronicoController {
                 $ponto->save();
                 
                 Session::put('status.msg', 'Saída registrada com sucesso! Até breve!');
-                Session::put('status.error_redirect', $url_base.'/sair');  
+                // Session::put('status.error_redirect', $url_base.'/sair');  
                 
                 return redirect(getenv('APP_URL').'/dashboard');
             
@@ -162,9 +164,12 @@ class PontoController extends PontoEletronicoController {
     
     public function registrar(){
         
+
+        dd("entrou2");
+
         $url_base = getenv('APP_URL');
         
-        $usuario_id = Session::get('login.ponto.usuario_id');
+        $usuario_id = Session::get('login.ponto.painel.usuario_id');
         
         $hoje = Date("Y-m-d");
         
@@ -183,12 +188,14 @@ class PontoController extends PontoEletronicoController {
             $ponto->save();
 
             Session::put('status.msg', 'Entrada registrada com sucesso! Até breve!');
-            Session::put('status.error_redirect', $url_base.'/sair');
+            // Session::put('status.error_redirect', $url_base.'/sair');
             
         endif;
         
         if($area == 'saida'):
             
+        // dd("teste");
+
             $ponto = new Ponto();
             $ponto->usuario_id = $usuario_id;
             $ponto->data = $hoje;
@@ -198,7 +205,7 @@ class PontoController extends PontoEletronicoController {
             $ponto->save();    
             
             Session::put('status.msg', 'Saída registrada com sucesso! Até breve!');
-            Session::put('status.error_redirect', $url_base.'/sair');
+            // Session::put('status.error_redirect', $url_base.'/sair');
             
         endif;
         

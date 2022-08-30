@@ -127,10 +127,15 @@ $admin = Session::get('login.ponto.painel.admin');
       </div>
 
       <!-- /.search form -->  
-        
+      
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        
+        <li>
+          <a href="{{ $url_base }}/painel/dashboard2">
+            <i class="far fa-clock"></i>
+            <span>Ponto</span>
+          </a>
+        </li>  
         @if($admin == 1)  
         <li>
           <a href="{{ $url_base }}/painel/acompanhamento">

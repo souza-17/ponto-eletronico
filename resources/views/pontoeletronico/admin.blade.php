@@ -104,7 +104,13 @@
           <img src="{{ $url_base }}/img/avatar.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{ utf8_decode(Session::get('login.ponto.usuario_nome')) }}</p>
+          <p>{{ utf8_decode(Session::get('login.ponto.usuario_nome')) }}
+            @php 
+
+            echo($admin);
+
+            @endphp
+          </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -114,7 +120,48 @@
         
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
+        <li>
+          <a href="{{ $url_base }}/painel/dashboard2">
+            <i class="far fa-clock"></i>
+            <span>Ponto</span>
+          </a>
+        </li>  
+        @if($admin == 1)  
+
         
+        <li>
+          <a href="{{ $url_base }}/painel/acompanhamento">
+            <i class="far fa-clock"></i>
+            <span>Acompanhamento</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ $url_base }}/painel/certificacao">
+            <i class="far fa-calendar-check"></i>
+            <span>Ajustes</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ $url_base }}/painel/usuarios">
+            <i class="fas fa-users"></i>
+            <span>Colaboradores</span>
+          </a>
+        </li>
+        @else
+        <li>
+          <a href="{{ $url_base }}/painel/acompanhamento">
+            <i class="far fa-clock"></i>
+            <span>Acompanhamento</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ $url_base }}/painel/ajuste">
+            <i class="far fa-calendar-alt"></i>
+            <span>Ajustes</span>
+          </a>
+        </li>
+        
+        @endif
         
         
         <li>
