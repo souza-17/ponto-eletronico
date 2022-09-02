@@ -31,7 +31,7 @@
     
 <div class="login-box">
   <div class="login-logo">
-      {{-- <a href="#"><img src="{{ $url_base }}/img/ilab4_logo_pontoeletronico.png" width="350px;"></a> --}}
+      
   </div>
     
   <!-- /.login-logo -->

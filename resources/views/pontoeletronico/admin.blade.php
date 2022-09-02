@@ -54,8 +54,6 @@
 <!-- Site wrapper -->
 <div class="wrapper">
 
-  
-    
   <header class="main-header">
 
     <!-- Logo -->
@@ -63,7 +61,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><img src="{{ $url_base }}/img/apple-touch-icon.png"></span>
       <!-- logo for regular state and mobile devices -->
-      {{-- <span class="logo-lg"><img src="{{ $url_base }}/img/ilab4_logo_pontoeletronico.png"></span> --}}
+      <span class="logo-lg"><img src="{{ $url_base }}/img/202.png"></span>
     </a>
 
     <!-- Header Navbar -->
@@ -107,7 +105,7 @@
           <p>{{ utf8_decode(Session::get('login.ponto.usuario_nome')) }}
             @php 
 
-            echo($admin);
+            // echo($admin);
 
             @endphp
           </p>

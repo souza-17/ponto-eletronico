@@ -48,6 +48,7 @@ $hora = Date('H:i');
               <strong><i class="fas fa-map-marker-alt margin-r-5"></i> Local: </strong> {{ $usuario->local }}
             </div>
             <!-- /.box-body -->
+          
           </div>
           <!-- /.box -->
         </div>
@@ -72,7 +73,11 @@ $hora = Date('H:i');
                           {{ csrf_field() }}
                           <input type="hidden" name="area" value="entrada">
                           <input type="hidden" name="hora" value="<?=$hora?>">
-                          <input type='submit' value='ENTRADA' class="btn btn-success" style="width: 100%;">
+                          <input type='submit' value='ENTRADA' class="btn btn-success" style="width: 100%;" 
+                          @if ($total >= 2)
+                          disabled
+                          @endif
+                          >
                       </form>
                   </div>
                   <div class='col-md-6 col-xs-6'>
@@ -80,7 +85,10 @@ $hora = Date('H:i');
                           {{ csrf_field() }}
                           <input type="hidden" name="area" value="saida">
                           <input type="hidden" name="hora" value="<?=$hora?>">
-                          <input type='submit' value='SAÍDA' class="btn btn-danger" style="width: 100%;">
+                          <input type='submit' value='SAÍDA' class="btn btn-danger" style="width: 100%;" 
+                          @if ($total >= 2)
+                          disabled
+                          @endif>
                       </form>
                   </div>
               </div>

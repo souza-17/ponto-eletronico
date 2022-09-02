@@ -20,7 +20,7 @@ Route::group(['namespace' => 'PontoEletronico'], function()
   // Route::get('/registrar', 'PontoController@registrar');
   // Route::get('/dashboard', 'DashboardController@index');
   
-  // Route::get('/sair', 'LoginController@sair');
+  Route::get('/sair', 'LoginPainelController@sair');
   
   
 });

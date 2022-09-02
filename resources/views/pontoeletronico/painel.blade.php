@@ -1,5 +1,5 @@
-<?php $url_base = getenv('APP_URL'); ?>
-<?php
+<?php 
+$url_base = getenv('APP_URL'); 
 $admin = Session::get('login.ponto.painel.admin');
 ?>
 <!DOCTYPE html>
@@ -54,16 +54,14 @@ $admin = Session::get('login.ponto.painel.admin');
 <!-- Site wrapper -->
 <div class="wrapper">
 
-  
-    
   <header class="main-header">
 
     <!-- Logo -->
     <a href="#" class="logo" style="text-align: left !important;">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><img src="{{ $url_base }}/img/apple-touch-icon.png"></span>
+      <span class="logo-mini"><img src="{{ $url_base }}/img/50.png"></span>
       <!-- logo for regular state and mobile devices -->
-      {{-- <span class="logo-lg"><img src="{{ $url_base }}/img/ilab4_logo_pontoeletronico.png"></span> --}}
+      <span class="logo-lg"><img src="{{ $url_base }}/img/202.png"></span>
     </a>
 
     <!-- Header Navbar -->

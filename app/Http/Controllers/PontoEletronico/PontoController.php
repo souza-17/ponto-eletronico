@@ -29,7 +29,10 @@ class PontoController extends PontoEletronicoController {
         $hoje = Date("Y-m-d");
         
         $ultimo_registro = Ponto::where(['usuario_id' => $usuario_id, 'data' => $hoje])->orderBy('id', 'DESC')->first();
+        // dd($ultimo_registro->count());
         
+
+
         if($ultimo_registro):
             $registro_entrada = $ultimo_registro->entrada;
             $registro_saida = $ultimo_registro->saida;
